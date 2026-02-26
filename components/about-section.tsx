@@ -76,7 +76,7 @@ export function AboutSection() {
             <div>
               <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
               <p className="text-gray-300 leading-relaxed text-balance text-lg">
-                I'm a cloud-focused developer passionate about building
+                I'm an <strong>AWS Certified Developer Associate</strong> passionate about building
                 scalable, serverless, and secure solutions. With hands-on
                 experience across AWS services, backend API design, and
                 infrastructure automation, I'm committed to crafting
