@@ -60,7 +60,7 @@ export function HeroSection() {
           </button>
 
           <a
-            href="/Resume_4thFeb.pdf"
+            href="/Resume_23-03.pdf"
             download
             className="group px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/50 flex items-center gap-2"
           >
