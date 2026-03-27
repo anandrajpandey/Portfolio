@@ -14,7 +14,7 @@ export function SkillsSection() {
       />
 
       <div className="border border-white/8 bg-white/[0.02] px-2 py-2 sm:px-4 sm:py-4">
-        <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-3 gap-x-3 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5 xl:grid-cols-4">
           {techStack.map((tech, index) => {
             const Icon = tech.icon;
 
@@ -25,14 +25,14 @@ export function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.03 }}
                 viewport={{ once: true, amount: 0.2 }}
-                className="flex items-center gap-3 px-3 py-3"
+                className="flex flex-col items-center gap-2 px-2 py-3 text-center sm:flex-row sm:items-center sm:gap-3 sm:px-3 sm:text-left"
               >
                 <span
                   className={`inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br ${tech.tone} text-slate-100 shadow-[0_10px_30px_rgba(2,8,23,0.2)]`}
                 >
                   <Icon size={18} />
                 </span>
-                <span className="text-base font-medium text-slate-100">
+                <span className="text-xs font-medium leading-5 text-slate-100 sm:text-base">
                   {tech.name}
                 </span>
               </motion.div>
