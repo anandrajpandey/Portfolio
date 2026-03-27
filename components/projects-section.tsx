@@ -8,11 +8,7 @@ import { projects } from "@/lib/portfolio-data";
 export function ProjectsSection() {
   return (
     <section id="projects" className="section-shell py-20 sm:py-24">
-      <SectionHeading
-        eyebrow="Projects"
-        title="Selected work across monitoring, security, serverless delivery, and decentralized systems."
-        description=""
-      />
+      <SectionHeading eyebrow="Projects" title="" description="" />
 
       <div className="grid gap-6 xl:grid-cols-2">
         {projects.map((project, index) => {

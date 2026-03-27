@@ -7,11 +7,7 @@ import { badges, techStack } from "@/lib/portfolio-data";
 export function SkillsSection() {
   return (
     <section id="skills" className="section-shell py-20 sm:py-24">
-      <SectionHeading
-        eyebrow="Tech Stack"
-        title="Core technologies across cloud infrastructure, backend systems, and DevOps delivery."
-        description=""
-      />
+      <SectionHeading eyebrow="Tech Stack" title="" description="" />
 
       <div className="border border-white/8 bg-white/[0.02] px-2 py-2 sm:px-4 sm:py-4">
         <div className="grid grid-cols-3 gap-x-3 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5 xl:grid-cols-4">
