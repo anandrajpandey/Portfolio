@@ -1,136 +1,99 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-
-const projects = [
-  {
-    title: "API Health Monitoring System",
-    description:
-      "Designed and deployed a cloud-native API Health Monitoring System on AWS using EventBridge, Lambda, SQS, ECS Fargate, DynamoDB, and SNS. Implemented event-driven architecture with Terraform (IaC) to perform scalable, fault-tolerant health checks and state persistence. Enabled automated alerting on API state transitions, improving reliability and observability of external services.",
-    tech: ["AWS Services", "Python", "Terraform", "Docker", "Debugging"],
-    highlights: [
-      "Event-driven cloud-native architecture",
-      "Scalable ECS Fargate worker processing",
-      "State transition-based intelligent alerting",
-    ],
-  },
-  {
-    title: "Ethereum Bounty Management System",
-    description:
-      "Decentralized application on the Ethereum blockchain enabling secure bug bounty submission, tracking, and reward allocation in a trustless environment.",
-    tech: ["Solidity", "Smart Contracts", "Ethereum", "Web3", "Blockchain"],
-    highlights: ["Smart contracts", "Trust-less system", "Transparent rewards"],
-  },
-  {
-    title: "Traceroute-Based Anomaly Detection System",
-    description:
-      "FastAPI-based system using machine learning (Isolation Forest) to identify suspicious IP addresses and latency spikes. Integrated comprehensive network mapping capabilities.",
-    tech: ["FastAPI", "Python", "Scikit-learn", "NumPy", "Network Security"],
-    highlights: [
-      "ML-powered threat detection",
-      "CORS-secured API",
-      "Real-time analysis",
-    ],
-  },
-  {
-    title: "Serverless File Management System",
-    description:
-      "Secure file upload and download system using Amazon S3 presigned URLs and AWS Lambda functions, handling high transaction volumes while reducing infrastructure costs.",
-    tech: [
-      "AWS Lambda",
-      "S3",
-      "Node.js",
-      "Serverless",
-      "Infrastructure as Code",
-    ],
-    highlights: ["Presigned URLs", "Cost-optimized", "High throughput"],
-  },
-];
+import { ArrowUpRight, Github } from "lucide-react";
+import { SectionHeading } from "@/components/section-heading";
+import { projects } from "@/lib/portfolio-data";
 
 export function ProjectsSection() {
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10"
-    >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-6xl w-full"
-      >
-        <motion.h2
-          className="text-4xl lg:text-5xl font-bold text-white mb-16 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Academic Projects
-        </motion.h2>
+    <section id="projects" className="section-shell py-20 sm:py-24">
+      <SectionHeading
+        eyebrow="Projects"
+        title="Selected work across monitoring, security, serverless delivery, and decentralized systems."
+        description=""
+      />
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
+      <div className="grid gap-6 xl:grid-cols-2">
+        {projects.map((project, index) => {
+          const Icon = project.icon;
+
+          return (
+            <motion.article
               key={project.title}
-              className="group bg-gradient-to-br from-gray-900/60 to-gray-800/40 border border-gray-700/50 rounded-xl p-8 hover:border-yellow-400/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              transition={{ delay: index * 0.08 }}
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="group relative overflow-hidden border border-white/10 bg-white/[0.02] p-7"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white pr-4">
+              <div className="absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.14),transparent_35%)]" />
+              </div>
+
+              <div className="relative flex h-full flex-col">
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-cyan-200">
+                    <Icon size={20} />
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-400/30 hover:text-white"
+                      aria-label={`${project.title} GitHub`}
+                    >
+                      <Github size={16} />
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:border-cyan-400/30 hover:text-white"
+                      aria-label={`${project.title} live link`}
+                    >
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-semibold text-white">
                   {project.title}
                 </h3>
-                <div className="flex gap-2 flex-shrink-0">
-                  <button className="p-2 hover:bg-yellow-400/10 rounded-lg text-gray-400 hover:text-yellow-400 transition-all duration-300">
-                    <Github size={20} />
-                  </button>
-                  <button className="p-2 hover:bg-yellow-400/10 rounded-lg text-gray-400 hover:text-yellow-400 transition-all duration-300">
-                    <ExternalLink size={20} />
-                  </button>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  {project.description}
+                </p>
+                {project.hostedAt ? (
+                  <p className="mt-3 text-sm text-cyan-200">
+                    Hosted at{" "}
+                    <a
+                      href={project.hostedAt}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline decoration-cyan-300/50 underline-offset-4"
+                    >
+                      {project.hostedAt}
+                    </a>
+                  </p>
+                ) : null}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
-
-              <p className="text-gray-300 mb-6 leading-relaxed text-balance">
-                {project.description}
-              </p>
-
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold text-gray-400 mb-3">
-                  Highlights
-                </h4>
-                <ul className="space-y-2">
-                  {project.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="text-sm text-gray-300 flex items-center gap-2"
-                    >
-                      <span className="text-yellow-400">✓</span>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-3 py-1 bg-yellow-400/10 text-yellow-300 rounded-full border border-yellow-400/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+            </motion.article>
+          );
+        })}
+      </div>
     </section>
   );
 }

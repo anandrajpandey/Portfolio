@@ -1,37 +1,54 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-
+import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
-import { Playfair_Display } from "next/font/google";
 
-const playfair = Playfair_Display({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  variable: "--font-heading",
 });
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
-  title: "Anand Raj Pandey - Cloud Developer & AWS Specialist",
+  metadataBase: new URL("https://anandrajpandey.dev"),
+  title: "Anand Raj Pandey",
   description:
-    "Cloud-focused developer building scalable, serverless solutions. AWS Certified Developer Associate specializing in backend APIs and security.",
+    "An AWS Certified Developer Associate focused on cloud architecture, backend systems, automation, and secure infrastructure.",
   keywords: [
-    "AWS",
-    "Cloud Developer",
-    "Backend Development",
-    "Cloud Computing",
-    "Security",
-    "Serverless",
-    "Full Stack Developer",
+    "Anand Raj Pandey",
+    "Cloud Engineer",
+    "Backend Developer",
+    "AWS Certified Developer Associate",
+    "DevOps Portfolio",
+    "Terraform",
+    "Docker",
+    "Kubernetes",
+    "Python",
+    "Node.js",
   ],
   authors: [{ name: "Anand Raj Pandey" }],
   creator: "Anand Raj Pandey",
-  generator: "Next.js",
+  openGraph: {
+    title: "Anand Raj Pandey | Cloud Engineer & Backend Developer",
+    description:
+      "Cloud-native systems, backend APIs, DevOps tooling, and AWS-first engineering.",
+    type: "website",
+    images: ["/imgs/profile.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anand Raj Pandey | Cloud Engineer & Backend Developer",
+    description:
+      "AWS-certified engineer building scalable, observable, and secure systems.",
+    images: ["/imgs/profile.jpg"],
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0c1929",
+  themeColor: "#020817",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -44,7 +61,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className="font-sans antialiased bg-gray-950 text-white overflow-x-hidden">
+      <body
+        className={`${sora.variable} ${manrope.variable} bg-slate-950 text-slate-100 antialiased`}
+      >
         {children}
       </body>
     </html>

@@ -1,76 +1,61 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-
-const skillCategories = [
-  {
-    title: 'Cloud Technologies',
-    skills: ['AWS Services (EC2, S3, Lambda, DynamoDB)', 'Terraform', 'Ansible', 'Docker', 'Kubernetes'],
-  },
-  {
-    title: 'Programming Languages',
-    skills: ['Python', 'Java', 'JavaScript/Node.js', 'React', 'C', 'MySQL'],
-  },
-  {
-    title: 'Specializations',
-    skills: ['AWS Cloud Computing', 'Backend Development & API Design', 'Blockchain Development', 'Web Security'],
-  },
-]
+import { motion } from "framer-motion";
+import { SectionHeading } from "@/components/section-heading";
+import { badges, techStack } from "@/lib/portfolio-data";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-6xl w-full"
-      >
-        <motion.h2
-          className="text-4xl lg:text-5xl font-bold text-white mb-16 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Technical Skills
-        </motion.h2>
+    <section id="skills" className="section-shell py-20 sm:py-24">
+      <SectionHeading
+        eyebrow="Tech Stack"
+        title="Core technologies across cloud infrastructure, backend systems, and DevOps delivery."
+        description=""
+      />
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 rounded-xl p-8 hover:border-yellow-400/30 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
+      <div className="border border-white/8 bg-white/[0.02] px-2 py-2 sm:px-4 sm:py-4">
+        <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2 xl:grid-cols-4">
+          {techStack.map((tech, index) => {
+            const Icon = tech.icon;
+
+            return (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.03 }}
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex items-center gap-3 px-3 py-3"
+              >
+                <span
+                  className={`inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br ${tech.tone} text-slate-100 shadow-[0_10px_30px_rgba(2,8,23,0.2)]`}
+                >
+                  <Icon size={18} />
+                </span>
+                <span className="text-base font-medium text-slate-100">
+                  {tech.name}
+                </span>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="mt-8 border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-slate-400">
+          Technologies In Rotation
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {badges.map((badge) => (
+            <span
+              key={badge}
+              className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-100"
             >
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                {category.title}
-              </h3>
-              <ul className="space-y-3">
-                {category.skills.map((skill) => (
-                  <motion.li
-                    key={skill}
-                    className="text-gray-300 flex items-center gap-3"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                  >
-                    <span className="text-yellow-400">•</span>
-                    {skill}
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+              {badge}
+            </span>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
-  )
+  );
 }

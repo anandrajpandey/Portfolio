@@ -1,112 +1,114 @@
 "use client";
 
-import { ArrowDown, Mail, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+import { personal } from "@/lib/portfolio-data";
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-4xl"
-      >
-        <div className="mb-6">
-          <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 text-balance"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            Anand Raj Pandey
-          </motion.h1>
-          <motion.p
-            className="text-xl sm:text-2xl text-gray-300 mb-6 text-balance"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            Cloud-Focused Developer & AWS Specialist
-          </motion.p>
-        </div>
-
-        <motion.p
-          className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8 text-balance"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          Building scalable, serverless, and cloud-native solutions with AWS,
-          backend API design, and cutting-edge security practices. AWS Certified
-          Developer Associate.
-        </motion.p>
-
+    <section id="home" className="section-shell relative pt-20 sm:pt-24">
+      <div className="grid min-h-[calc(100vh-8.5rem)] items-center gap-8 py-6 lg:grid-cols-[1.08fr_0.92fr]">
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
         >
-          <button
-            onClick={() =>
-              (window.location.href =
-                "https://mail.google.com/mail/u/0/#inbox?compose=new&to=anandrajpandey75@gmail.com&subject=Let%27s%20Connect&body=Hi%20Anand,%0A%0AI%20would%20like%20to%20connect%20with%20you%20regarding%20a%20project%20opportunity.")
-            }
-            className="px-8 py-3 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-semibold rounded-lg transition-all duration-300"
-          >
-            Get in Touch
-          </button>
+          <div className="space-y-4">
+            <p className="text-sm uppercase tracking-[0.35em] text-cyan-200">
+              Introduction
+            </p>
+            <h1 className="text-3xl font-semibold text-white sm:text-4xl">
+              Anand Raj Pandey
+            </h1>
+            <p className="text-lg text-slate-300">{personal.title}</p>
+            <p className="max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
+              I&apos;m a cloud engineer and backend developer focused on
+              building scalable AWS systems, reliable APIs, and automation-first
+              workflows. My work blends cloud infrastructure, backend delivery,
+              and security-minded engineering to ship products that are
+              practical, observable, and production-ready.
+            </p>
+            <p className="max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
+              My stack is centered around AWS, Terraform, Docker, Kubernetes,
+              Ansible, Node.js, FastAPI, Python, TypeScript, Next.js, and
+              Tailwind CSS, with an AWS Certified Developer Associate credential
+              backing the cloud-native side of my work.
+            </p>
+            <p className="max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">
+              I enjoy designing cloud-native architectures, developing backend
+              systems and APIs, and improving delivery through automation,
+              observability, and security-first engineering. I&apos;m based in{" "}
+              {personal.location}.
+            </p>
+          </div>
 
-          <a
-            href="/Resume_23-03.pdf"
-            download
-            className="group px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/50 flex items-center gap-2"
-          >
-            Download Resume
-          </a>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Contact Me
+              <Mail size={16} />
+            </a>
+            <a
+              href={personal.resume}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-6 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-400/15"
+            >
+              Resume
+              <Download size={16} />
+            </a>
+          </div>
 
-          <a
-            href="#projects"
-            className="px-8 py-3 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-semibold rounded-lg transition-all duration-300"
-          >
-            View My Work
-          </a>
+          <div className="flex flex-wrap items-center gap-5">
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
+            >
+              <Github size={18} />
+              GitHub
+            </a>
+            <a
+              href={personal.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-white"
+            >
+              <Linkedin size={18} />
+              LinkedIn
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
-          className="flex gap-6 justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative"
         >
-          <a
-            href="https://github.com/anandrajpandey"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"
-          >
-            <Github size={24} />
-          </a>
-          <a
-            href="https://linkedin.com/in/anand-raj-pandey-4231a827a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"
-          >
-            <Linkedin size={24} />
-          </a>
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_40%)]" />
+            <div className="relative mx-auto aspect-[4/4.65] max-w-sm overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-900/70">
+              <Image
+                src="/imgs/profile.jpg"
+                alt="Anand Raj Pandey"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+          </div>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <ArrowDown className="text-yellow-400" size={32} />
-      </motion.div>
+      </div>
     </section>
   );
 }
