@@ -32,7 +32,7 @@ export const personal = {
   phone: "+91 866-086-2307",
   github: "https://github.com/anandrajpandey",
   linkedin: "https://linkedin.com/in/anand-raj-pandey-4231a827a",
-  resume: "/Resume_29-03.pdf",
+  resume: "/Resume_v3.pdf",
   location: "Bengaluru, India",
   summary:
     "AWS Certified Developer Associate with hands-on experience building cloud-native platforms, secure APIs, and automation-first delivery systems across backend, DevOps, and security workflows.",
