@@ -116,7 +116,7 @@ export const techStack = [
   },
   { name: "MySQL", icon: Database, tone: "from-cyan-500/25 to-cyan-500/10" },
   { name: "Java", icon: Cpu, tone: "from-orange-400/25 to-orange-400/10" },
-  ,
+  { name: "Google ADK", icon: Cloud, tone: "from-blue-400/25 to-blue-400/10" },
 ];
 
 export const badges = [
