@@ -134,22 +134,22 @@ export const badges = [
 
 export const projects = [
   {
-    title: "API Health Monitoring System",
+    title: "AI-Powered CI/CD Orchestrator",
     description:
-      "Engineered an event-driven monitoring platform on AWS to track external API uptime, persist state changes, and trigger intelligent alerts for reliability workflows. The system leverages AWS managed services as its foundation and is set up using Terraform, thus following DevOps best practices such as Infrastructure as Code (IaC), event, driven design, least privilege access control using IAM, and horizontal scalability.",
+      "Engineered a real-time, event-driven CI/CD orchestration platform to automatically intercept pipeline failures, analyze error logs, and visualize complex multi-agent interactions. The system leverages Google ADK to run an autonomous multi-LLM debate workflow, allowing specialized agents to evaluate issues, cross-challenge findings, and propose precise code-level mitigations, dramatically reducing manual debugging time.",
     stack: [
-      "AWS Lambda",
-      "Eventbridge",
-      "ECS",
-      "SQS & SNS",
-      "Terraform",
+      "Next.js",
+      "Fastify",
+      "TypeScript",
+      "tRPC",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Google ADK",
       "Docker",
-      "DynamoDB",
-      "Python",
+      "Tailwind CSS",
     ],
-    github:
-      "https://github.com/anandrajpandey/API-Health-Check-Monitoring-System",
-    live: "https://github.com/anandrajpandey/API-Health-Check-Monitoring-System",
+    github: "https://github.com/anandrajpandey/cicd-developement",
+    live: "https://github.com/anandrajpandey/cicd-developement",
     icon: Globe,
   },
   {
@@ -185,13 +185,23 @@ export const projects = [
     icon: Lock,
   },
   {
-    title: "Incentiv3 : Ethereum Bounty Management System",
+    title: "API Health Monitoring System",
     description:
-      "Designed a decentralized bounty workflow on Ethereum for trustless bug bounty submission, reward distribution, and transparent stakeholder coordination. A blockchain-powered task marketplace where users earn crypto by completing missions. Includes a decentralized browser-based file conversion tool with IPFS uploads and wallet-signed ownership verification. Built using Solidity, Next.js, Ethers.js, and Pinata.",
-    stack: ["Solidity", "Ethereum", "Web3", "Smart Contracts", "JavaScript"],
-    github: "https://github.com/anandrajpandey/Incentiv3",
-    live: "https://github.com/anandrajpandey/Incentiv3",
-    icon: GitBranch,
+      "Engineered an event-driven monitoring platform on AWS to track external API uptime, persist state changes, and trigger intelligent alerts for reliability workflows. The system leverages AWS managed services as its foundation and is set up using Terraform, thus following DevOps best practices such as Infrastructure as Code (IaC), event, driven design, least privilege access control using IAM, and horizontal scalability.",
+    stack: [
+      "AWS Lambda",
+      "Eventbridge",
+      "ECS",
+      "SQS & SNS",
+      "Terraform",
+      "Docker",
+      "DynamoDB",
+      "Python",
+    ],
+    github:
+      "https://github.com/anandrajpandey/API-Health-Check-Monitoring-System",
+    live: "https://github.com/anandrajpandey/API-Health-Check-Monitoring-System",
+    icon: Globe,
   },
 ];
 
